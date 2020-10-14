@@ -21,6 +21,12 @@ class _InputPageState extends State<InputPage> {
 
   Gender selectedGender;
 
+  void setGender(Gender gender) {
+    setState(() {
+      selectedGender = gender;
+    });
+  }
+
   // void updateColour(Gender gender) {
   //   if (gender == Gender.male) {
   //     if (maleCardColour == inactiveCardColour) {
@@ -52,39 +58,30 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      print('Male card');
-                      setState(() {
-                        selectedGender = Gender.male;
-                      });
+                  child: ReusableCard(
+                    onPress: () {
+                      setGender(Gender.male);
                     },
-                    child: ReusableCard(
-                      colour: selectedGender == Gender.male
-                          ? activeCardColour
-                          : inactiveCardColour,
-                      cardChild: ReusableColumn(
-                        iconData: FontAwesomeIcons.mars,
-                        cardText: 'MALE',
-                      ),
+                    colour: selectedGender == Gender.male
+                        ? activeCardColour
+                        : inactiveCardColour,
+                    cardChild: ReusableColumn(
+                      iconData: FontAwesomeIcons.mars,
+                      cardText: 'MALE',
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedGender = Gender.female;
-                      });
+                  child: ReusableCard(
+                    onPress: () {
+                      setGender(Gender.female);
                     },
-                    child: ReusableCard(
-                      colour: selectedGender == Gender.female
-                          ? activeCardColour
-                          : inactiveCardColour,
-                      cardChild: ReusableColumn(
-                        iconData: FontAwesomeIcons.venus,
-                        cardText: 'FEMALE',
-                      ),
+                    colour: selectedGender == Gender.female
+                        ? activeCardColour
+                        : inactiveCardColour,
+                    cardChild: ReusableColumn(
+                      iconData: FontAwesomeIcons.venus,
+                      cardText: 'FEMALE',
                     ),
                   ),
                 ),
