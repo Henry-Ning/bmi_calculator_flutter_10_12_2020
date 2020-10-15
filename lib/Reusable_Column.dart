@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-const labelTextStyle = TextStyle(
-  fontSize: 18,
-  color: Color(0xFF8D8E98),
-);
+import 'constants.dart';
 
 class ReusableColumn extends StatelessWidget {
   ReusableColumn({@required this.iconData, @required this.cardText});
@@ -25,7 +21,7 @@ class ReusableColumn extends StatelessWidget {
         ),
         Text(
           cardText,
-          style: labelTextStyle,
+          style: kLabelTextStyle,
         ),
       ],
     );
